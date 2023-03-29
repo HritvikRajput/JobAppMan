@@ -1,0 +1,74 @@
+<div class="container-fluid">
+  <app-header></app-header> 
+  <div class="jumbotron">
+    <h4>Welcome Admin</h4>
+  </div>
+  <div class="row">
+    <!-- List Apps -->
+    <div [ngClass]="addNewAppModal || viewAppModal || editAppModal? 'col-6':'col-12'"  class="border p-3 ">
+      <div class="row text-center AppId" *ngFor="let app of applications">
+        <div class="col-sm-2">{{app['id']}}</div>
+        <div class="col-sm-4">{{app['name']}}</div>
+        <div class="col-sm-6">
+          <button class="btn btn-outline-primary btn-sm mx-2 my-1" (click)="openModal('view',app)">View</button>
+          <button class="btn btn-outline-warning btn-sm mx-2 my-1" (click)="openModal('edit',app)">Edit</button>
+          <button class="btn btn-outline-danger btn-sm mx-2 my-1">Remove</button>
+        </div>
+
+      </div>
+    </div>
+    <!-- View App -->
+    <div class="col-6 border" *ngIf="viewAppModal">
+      <div class="" tabindex="-1" id="addAppModal" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Application Details</h5>
+            </div>
+            <div class="modal-body">
+              {{currApp.id}}
+              {{currApp.name}}
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal"
+                (click)="viewAppModal = 0">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Edit App -->
+    <div class="col-6 border" *ngIf="editAppModal">
+      <div class="" tabindex="-1" id="editAppModal" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Edit Application Details</h5>
+            </div>
+            <div class="modal-body">
+              <div class="mb-3 row">
+                <label for="staticId" class="col-sm-2 col-form-label">Id</label>
+                <div class="col-sm-10">
+                  <input type="text" readonly class="form-control-plaintext" id="staticId" #staticId
+                    [value]="currApp.id">
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputName" #inputName [value]="currApp.name">
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal"
+                (click)="editAppModal = 0">Close</button>
+              <button type="button" class="btn btn-outline-warning btn-sm" data-bs-dismiss="modal"
+                (click)="editAppModal = 0; updateApp(staticId.value,inputName.value)">Update</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

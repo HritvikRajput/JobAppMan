@@ -1,0 +1,253 @@
+<div class="container-fluid">
+  <app-header></app-header>
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-12">
+        <form *ngIf="appForm" [formGroup]="appForm">
+          <!-- Basic Details -->
+          <div class="card">
+            <div class="card-header">
+              <h4>Basic Details</h4>
+            </div>
+            <div class="card-body" formGroupName="basicDetails">
+              <!-- Name -->
+              <div class="form-outline mb-4">
+                <label class="form-label" for="name">Name</label>
+                <input type="text" id="name" class="form-control" formControlName="name" />
+              </div>
+              <!-- Email -->
+              <div class="form-outline mb-4">
+                <label class="form-label" for="email">Email</label>
+                <input type="email" id="email" class="form-control" formControlName="email" />
+              </div>
+
+              <!-- address -->
+              <div class="form-outline mb-4">
+                <label class="form-label" for="address">Address</label>
+                <textarea type="text" id="address" class="form-control" formControlName="address"></textarea>
+              </div>
+
+              <!-- Dropdown input -->
+              <div class="form-outline mb-4">
+                <label class="form-label" for="gender">Gender</label> :&nbsp;
+                <!-- <input type="text" id="form6Example3" class="form-control" /> -->
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="gender" id="gender_male" value="male">
+                  <label class="form-check-label" for="gender_male">Male</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="gender" id="gender_female" value="female">
+                  <label class="form-check-label" for="gender_female">Female</label>
+                </div>
+              </div>
+              <!-- Number input -->
+              <div class="form-outline mb-4">
+                <label class="form-label" for="contact">Contact</label>
+                <input type="number" id="contact" class="form-control" formControlName="contact" />
+              </div>
+
+              <!-- Checkbox -->
+              <!-- <div class="form-check d-flex justify-content-center mb-4">
+                <label class="form-check-label" for="form6Example8"> Create an account? </label>
+                <input class="form-check-input me-2" type="checkbox" value="" id="form6Example8" checked />
+              </div> -->
+
+            </div>
+          </div>
+          <hr>
+          <!-- Education Details -->
+          <div class="card">
+            <div class="card-header">
+              <h4>Education Details</h4>
+            </div>
+            <div class="card-body" formGroupName="educationDetails">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Item</th>
+                    <th scope="col">Board/University</th>
+                    <th scope="col">Year</th>
+                    <th scope="col">CGPA/Percentage</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr formGroupName="ssc">
+                    <th scope="row">SSC</th>
+                    <td><input type="text" formControlName="board"></td>
+                    <td><input type="text" formControlName="year"></td>
+                    <td><input type="text" formControlName="cgpa"></td>
+                  </tr>
+                  <tr formGroupName="hsc">
+                    <th scope="row">HSC</th>
+                    <td><input type="text" formControlName="board"></td>
+                    <td><input type="text" formControlName="year"></td>
+                    <td><input type="text" formControlName="cgpa"></td>
+                  </tr>
+                  <tr formGroupName="graduate">
+                    <th scope="row">Graduation</th>
+                    <td><input type="text" formControlName="board"></td>
+                    <td><input type="text" formControlName="year"></td>
+                    <td><input type="text" formControlName="cgpa"></td>
+                  </tr>
+                  <tr formGroupName="master">
+                    <th scope="row">Master Degree</th>
+                    <td><input type="text" formControlName="board"></td>
+                    <td><input type="text" formControlName="year"></td>
+                    <td><input type="text" formControlName="cgpa"></td>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <hr>
+          <!-- WorkExperience  -->
+          <!-- <div class="card">
+            <div class="card-header">
+              <h4>Work Experience</h4>
+            </div>
+            <div class="card-body" formGroupName="workExperience">
+
+            </div>
+          </div>
+          <hr> -->
+          <!-- knownLanguages  -->
+          <div class="card">
+            <div class="card-header">
+              <h4>Known Languages</h4>
+            </div>
+            <div class="card-body" formGroupName="knownLanguages">
+              <table class="table table-borderless">
+                <tbody>
+                  <tr formGroupName="english">
+                    <th scope="row">English</th>
+                    <td>
+                      <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="eng_read" name="read" formControlName="read"
+                          value="something">
+                        <label class="form-check-label" for="eng_read">Read</label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="eng_write" name="write"
+                          formControlName="write" value="something">
+                        <label class="form-check-label" for="eng_write">Write</label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="eng_speak" name="speak"
+                          formControlName="speak" value="something">
+                        <label class="form-check-label" for="eng_speak">Speak</label>
+                      </div>
+                    </td>
+
+                  </tr>
+                  <tr formGroupName="hindi">
+                    <th scope="row">Hindi</th>
+                    <td>
+                      <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="hin_read" name="read" formControlName="read"
+                          value="something">
+                        <label class="form-check-label" for="hin_read">Read</label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="hin_write" name="write"
+                          formControlName="write" value="something">
+                        <label class="form-check-label" for="hin_write">Write</label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="hin_speak" name="speak"
+                          formControlName="speak" value="something">
+                        <label class="form-check-label" for="hin_speak">Speak</label>
+                      </div>
+                    </td>
+
+                  </tr>
+                  <tr formGroupName="gujarati">
+                    <th scope="row">Gujarati</th>
+                    <td>
+                      <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="guj_read" name="read" formControlName="read"
+                          value="something">
+                        <label class="form-check-label" for="guj_read">Read</label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="guj_write" name="write"
+                          formControlName="write" value="something">
+                        <label class="form-check-label" for="guj_write">Write</label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="guj_speak" name="speak"
+                          formControlName="speak" value="something">
+                        <label class="form-check-label" for="guj_speak">Speak</label>
+                      </div>
+                    </td>
+
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <hr>
+          <!-- technicalExperience  -->
+          <!-- <div class="card">
+            <div class="card-header">
+              <h4>Technical Experience</h4>
+            </div>
+            <div class="card-body" formGroupName="technicalExperience">
+
+            </div>
+          </div>
+          <hr> -->
+          <!-- preference  -->
+          <div class="card">
+            <div class="card-header">
+              <h4>Preference</h4>
+            </div>
+            <div class="card-body" formGroupName="preference">
+              <table class="table-borderless">
+                <tbody>
+                  <tr>
+                    <th>Preferred Location</th>
+                    <td><input type="text" formControlName="preferredLocation"></td>
+                  </tr>
+                  <tr>
+                    <th>Expected CTC</th>
+                    <td><input type="text" formControlName="expectedCTC"></td>
+                  </tr>
+                  <tr>
+                    <th>CurrentCTC</th>
+                    <td><input type="text" formControlName="currentCTC"></td>
+                  </tr>
+                  <tr>
+                    <th>NoticePeriod</th>
+                    <td><input type="text" formControlName="noticePeriod"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+
+
+          <hr>
+          <!-- Submit button -->
+          <button type="submit" class="btn btn-primary btn-block mb-4" (click)="applyForJob()">Apply</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+</div>
